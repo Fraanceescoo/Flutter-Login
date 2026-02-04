@@ -9,16 +9,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      title: 'Login',
+      // Corretto: aggiunto ColorScheme
+      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
+      home: const MyHomePage(title: 'Flutter Login'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -35,48 +35,69 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Welcome back!",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 "Login to Continue",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   color: Color.fromARGB(255, 124, 122, 122),
                 ),
               ),
-              TextField(
+              const SizedBox(height: 30), // Spazio prima dei campi
+              const TextField(
                 decoration: InputDecoration(
                   labelText: "Email",
-                  labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 124, 122, 122),
-                  ),
                   hintText: "esempio@edu.iisleviponti.it",
-                  hintStyle: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                 ),
               ),
-              TextField(
+              const SizedBox(height: 20),
+              const TextField(
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: "Password",
-                  labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 124, 122, 122),
-                  ),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                 ),
               ),
-              TextButton(
-                onPressed: null,
-                child: Text("Login"),
-                /*style: TextButton.styleFrom(foregroundColor: Colors.blue))),*/
+              const SizedBox(height: 40),
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+                child: ElevatedButton(
+                  onPressed: () {}, // NOTA
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF435BEF),
+                    foregroundColor: Colors.white,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  child: const Text("Login"),
+                ),
               ),
-              TextButton(onPressed: null, child: Text("Create account")),
+              const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+                child: TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: const Color(0xFFE8EAF6),
+                    foregroundColor: const Color(0xFF435BEF),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  child: const Text("Create account"),
+                ),
+              ),
             ],
           ),
         ),
